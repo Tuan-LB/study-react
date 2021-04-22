@@ -4,7 +4,7 @@ import Person from './Person/Person';
 
 class App extends React.Component {
 
-    // progress: 4.10
+    // progress: 5.1
 
     state = {
         persons: [
