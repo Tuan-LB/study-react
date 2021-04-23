@@ -1,5 +1,7 @@
 class Progress {
 
-    progress = '5.7';
+    progress = '6.3';
 
 }
+
+export default Progress;
