@@ -4,12 +4,11 @@ import Person from './Person/Person';
 
 class App extends React.Component {
 
-    // progress: 5.1
-
     state = {
         persons: [
             { id: '111', name: 'max', age: 28 },
-            { id: '112', name: 'jane', age: 24 }
+            { id: '112', name: 'jane', age: 24 },
+            { id: '113', name: 'tony', age: 26 }
         ],
         key: 'ooooo',
         showPersons: false
@@ -36,7 +35,7 @@ class App extends React.Component {
         const persons = [...this.state.persons];
         persons[personIndex] = person;
 
-        this.setState( {persons: persons} )
+        this.setState({ persons: persons })
     }
 
     deletePersonHandler = (personIndex) => {
@@ -54,16 +53,17 @@ class App extends React.Component {
     render() {
 
         const style = {
-            backgroundColor: 'white',
+            backgroundColor: 'green',
+            color: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
-            cursor: 'pointer'
-        }
+            cursor: 'pointer',
+        };
 
         let persons = null;
 
-        if (this.state.showPersons === true) {
+        if (this.state.showPersons) {
             persons = (
                 <div>
                     {this.state.persons.map((person, index) => {
@@ -76,11 +76,24 @@ class App extends React.Component {
                     })}
                 </div>
             );
+
+            style.backgroundColor = 'red';
+        }
+
+        // let classes = ['red', 'bold'].join(' ');
+        const classes = [];
+        if (this.state.persons.length <= 2) {
+            classes.push('red');
+        }
+
+        if (this.state.persons.length <= 1) {
+            classes.push('bold');
         }
 
         return (
             <div className="App">
-                <p>This is really working!</p>
+                <h1>Hi, I'm a React App</h1>
+                <p className={classes.join(' ')}>This is really working!</p>
                 <button
                     style={style}
                     onClick={this.togglePersonHandler}>Toggle Persons</button>

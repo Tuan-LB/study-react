@@ -2,6 +2,7 @@ import React from 'react';
 import './Person.css';
 
 const person = (props) => {
+
     return (
         <div className="Person">
             <p> Person name: {props.name} and age: {props.age} </p>
