@@ -1,6 +1,6 @@
 class Progress {
 
-    progress = '6.3';
+    progress = '7.4';
 
 }
 
