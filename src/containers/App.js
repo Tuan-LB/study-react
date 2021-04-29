@@ -5,6 +5,15 @@ import Cockpit from '../components/Cockpit/Cockpit.js';
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+        console.log(props);
+    }
+
+    componentWillMount() {
+        console.log('===========');
+    }
+
     state = {
         persons: [
             { id: '111', name: 'max', age: 28 },
@@ -61,13 +70,13 @@ class App extends React.Component {
                     <Persons
                         persons={this.state.persons}
                         clicked={this.deletePersonHandler}
-                        changed={this.nameChangedHandler}/>
+                        changed={this.nameChangedHandler} />
                 </div>
             );
 
         }
 
-        
+
 
         return (
             <div className="app">
@@ -75,7 +84,7 @@ class App extends React.Component {
                     appTitle={this.props.title}
                     showPersons={this.state.showPersons}
                     persons={this.state.persons}
-                    clicked={this.togglePersonHandler}/>
+                    clicked={this.togglePersonHandler} />
                 {persons}
             </div>
         )
