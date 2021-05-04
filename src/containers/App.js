@@ -3,15 +3,11 @@ import './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit.js';
 
-class App extends React.Component {
+class App extends React.PureComponent {
 
     constructor(props) {
         super(props);
         console.log(props);
-    }
-
-    componentWillMount() {
-        console.log('===========');
     }
 
     state = {
@@ -22,6 +18,28 @@ class App extends React.Component {
         ],
         key: 'ooooo',
         showPersons: false
+    }
+
+    componentWillMount() {
+        console.log('[App.js] Inside componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('[App.js] Inside componentDidMount');
+    }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('[UPDATE App.js] Inside shouldComponentUpdate', nextProps, nextState);
+    //     return nextProps.persons !== this.state.persons ||
+    //             nextState.showPersons !== this.state.showPersons;
+    // }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('[UPDATE App.js] Inside componentWillUpdate', nextProps, nextState);
+    }
+
+    componentDidUpdate() {
+        console.log('[UPDATE App.js] Inside componentDidUpdate');
     }
 
     switchNameHandler = (name) => {
@@ -61,7 +79,7 @@ class App extends React.Component {
     }
 
     render() {
-
+        console.log('[App.js] Inside render');
         let persons = null;
 
         if (this.state.showPersons) {
@@ -80,6 +98,7 @@ class App extends React.Component {
 
         return (
             <div className="app">
+                <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
                 <Cockpit
                     appTitle={this.props.title}
                     showPersons={this.state.showPersons}

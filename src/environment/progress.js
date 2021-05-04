@@ -2,7 +2,7 @@ import React from 'react';
 
 class Progress extends React.Component {
 
-    progress = '7.5';
+    progress = '7.12';
 
     constructor() {} // hàm khởi tạo
     componentWillMount = () => {} // trước khi re-render component
