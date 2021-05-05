@@ -1,5 +1,7 @@
 import React from 'react';
 import './Cockpit.css';
+import Auxx from '../../hoc/Auxx';
+
 const cockpit = (props) => {
     // let classes = ['red', 'bold'].join(' ');
     const assignedClasses = [];
@@ -17,13 +19,15 @@ const cockpit = (props) => {
     }
 
     return (
-        <div className="Cockpit">
-            <h1>{props.appTitle}</h1>
-            <p className={assignedClasses.join(' ')}>This is really working!</p>
-            <button
-                className={btnClass}
-                onClick={props.clicked}>Toggle Persons</button>
-        </div>
+        <Auxx>
+            <div className="Cockpit">
+                <h1>{props.appTitle}</h1>
+                <p className={assignedClasses.join(' ')}>This is really working!</p>
+                <button
+                    className={btnClass}
+                    onClick={props.clicked}>Toggle Persons</button>
+            </div>
+        </Auxx>
     );
 };
 
